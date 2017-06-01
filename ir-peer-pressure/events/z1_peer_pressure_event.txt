@@ -1,0 +1,222 @@
+﻿add_namespace = peer_pressure_disaster
+add_namespace = peer_pressure_answer
+
+##  10s - generic disasters
+
+# foreigner murders
+country_event = {
+	id = peer_pressure_disaster.10
+	title = peer_pressure_disaster.10.title
+	desc = peer_pressure_disaster.10.desc
+	picture = GFX_report_event_panzershrek
+
+	trigger = {
+		has_country_flag = allows_generic_disasters
+		NOT = { has_country_flag = disallows_generic_disasters }
+    NOT = { has_country_flag = peer_pressure_disaster.10 }
+    NOT = { has_country_flag = { flag = peer_pressure_disaster.xenophobia value < 6 } }
+	}
+
+	mean_time_to_happen = {
+		months = 20
+	}
+
+  immediate = {
+		hidden_effect = {
+      random_list = {
+        7 = {
+    			random_country = {
+            limit = { is_neighbor_of = ROOT }
+            save_event_target_as = foreigner_murderer_origin
+          }
+        }
+        2 = {
+    			random_country = {
+            limit = { has_opinion = { target = ROOT value > 50 }  }
+            save_event_target_as = foreigner_murderer_origin
+          }
+        }
+      }
+      if = {
+        limit = {
+          event_target:foreigner_murderer_origin = {
+            NOT = { exists = yes }
+          }
+        }
+        random_country = {
+          save_event_target_as = foreigner_murderer_origin
+        }
+      }
+      set_country_flag = { flag = disallows_generic_disasters days = 304 value = 1 }
+    }
+  }
+
+	# all are equal in the eyes of the law
+	option = {
+		name = peer_pressure_disaster.10.a
+
+		set_country_flag = peer_pressure_disaster.10
+
+    add_popularity = { ideology  = democratic popularity = 0.05 }
+    custom_effect_tooltip = peer_pressure_disaster.10.a.tt
+    hidden_effect = {
+      random_list = {
+        2 = {
+          add_popularity = { ideology  = fascism popularity = 0.02 }
+        }
+        3 = {
+          add_popularity = { ideology  = fascism popularity = 0.04 }
+        }
+        3 = {
+          add_popularity = { ideology  = fascism popularity = 0.06 }
+        }
+        2 = {
+          add_popularity = { ideology  = fascism popularity = 0.09 }
+        }
+      }
+      set_country_flag = peer_pressure_disaster.10.fascists_denied
+      country_event = { days = 1 id = peer_pressure_answer.10 }
+    }
+
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_government = democratic
+			}
+		}
+	}
+
+	# punish him harshly; foreigners can not be trusted
+	option = {
+		name = peer_pressure_disaster.10.b
+
+		set_country_flag = peer_pressure_disaster.10
+		modify_country_flag = { flag = peer_pressure_disaster.xenophobia value = 1 }
+
+    add_popularity = { ideology  = democratic popularity = -0.10 }
+    add_popularity = { ideology  = fascism popularity = 0.10 }
+
+    event_target:foreigner_murderer_origin = {
+      add_opinion_modifier = { target = ROOT modifier = peer_pressure_disaster.foreign_murderer_punished }
+      country_event = { days = 1 id = peer_pressure_answer.11 }
+    }
+
+		ai_chance = {
+			factor = 1
+      modifier = {
+				factor = 2
+        has_opinion = { target = event_target:foreigner_murderer_origin value < 0 }
+			}
+      modifier = {
+				factor = 3
+        has_government = fascism
+			}
+		}
+	}
+
+	# step in and let him off easy
+	option = {
+		name = peer_pressure_disaster.10.c
+
+		set_country_flag = peer_pressure_disaster.10
+    add_political_power = -50
+
+    event_target:foreigner_murderer_origin = {
+      add_opinion_modifier = { target = ROOT modifier = peer_pressure_disaster.foreign_murderer_let_go }
+    }
+
+    custom_effect_tooltip = peer_pressure_disaster.10.c.tt
+
+    hidden_effect = {
+      set_country_flag = peer_pressure_disaster.10.fascists_denied
+      random_list = {
+        5 = {
+          country_event = { days = 1 id = peer_pressure_answer.14 }
+        }
+        3 = {
+          country_event = { days = 1 id = peer_pressure_answer.15 }
+        }
+        2 = {
+          add_political_power = 1
+        }
+      }
+    }
+
+		ai_chance = {
+			factor = 0.1
+      modifier = {
+				factor = 15
+        AND = {
+          has_opinion = { target = event_target:foreigner_murderer_origin value > 100 }
+          NOT = { is_major = yes }
+        }
+			}
+		}
+	}
+
+}
+
+## fascists not happy
+country_event = {
+	id = peer_pressure_answer.10
+	title = peer_pressure_answer.10.title
+	desc = peer_pressure_answer.10.desc
+	picture = GFX_report_event_panzershrek
+
+  is_triggered_only = yes
+
+	option = {
+		name = peer_pressure_answer.10.a
+
+	}
+
+}
+
+## trump supporters happy
+country_event = {
+	id = peer_pressure_answer.11
+	title = peer_pressure_answer.11.title
+	desc = peer_pressure_answer.11.desc
+	picture = GFX_report_event_panzershrek
+
+  is_triggered_only = yes
+
+	option = {
+		name = peer_pressure_answer.11.a
+
+	}
+
+}
+
+## interference in murder found out - light
+country_event = {
+	id = peer_pressure_answer.14
+	title = peer_pressure_answer.14.title
+	desc = peer_pressure_answer.14.desc
+	picture = GFX_report_event_panzershrek
+
+  is_triggered_only = yes
+
+	option = {
+		name = peer_pressure_answer.14.a
+
+	}
+
+}
+
+## interference in murder found out - severe
+country_event = {
+	id = peer_pressure_answer.15
+	title = peer_pressure_answer.15.title
+	desc = peer_pressure_answer.15.desc
+	picture = GFX_report_event_panzershrek
+
+  is_triggered_only = yes
+
+	option = {
+		name = peer_pressure_answer.15.a
+
+	}
+
+}

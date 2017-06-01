@@ -1,0 +1,42 @@
+on_actions = {
+
+  on_startup = {
+		effect = {
+      every_country = {
+        set_country_flag = allows_generic_disasters
+        set_country_flag = peer_pressure_disaster.xenophobia
+        set_country_flag = peer_pressure.fascism_trust
+        set_country_flag = peer_pressure.democratic_trust
+        set_country_flag = peer_pressure.communism_trust
+        set_country_flag = peer_pressure.neutrality_trust
+      }
+      every_country = {
+        if = {
+          limit = {
+            has_government = fascism
+          }
+          set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 6 }
+        }
+        if = {
+          limit = {
+            has_government = democratic
+          }
+          set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 2 }
+        }
+        if = {
+          limit = {
+            has_government = communism
+          }
+          set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 1 }
+        }
+        if = {
+          limit = {
+            has_government = neutrality
+          }
+          set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 3 }
+        }
+      }
+		}
+	}
+
+}

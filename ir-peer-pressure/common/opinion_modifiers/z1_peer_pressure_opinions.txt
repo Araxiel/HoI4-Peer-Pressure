@@ -1,0 +1,14 @@
+opinion_modifiers = {
+
+  peer_pressure_disaster.foreign_murderer_punished = {
+    value = -15
+    months = 15
+		decay = 1
+  }
+  peer_pressure_disaster.foreign_murderer_let_go = {
+    value = 10
+    months = 10
+		decay = 1
+  }
+
+}

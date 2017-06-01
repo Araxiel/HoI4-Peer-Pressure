@@ -1,0 +1,11 @@
+﻿l_english:
+
+peer_pressure_disaster.10.title: "[foreigner_murderer_origin.GetAdjective] Murderer Case"
+peer_pressure_disaster.10.desc: "A while ago, a [foreigner_murderer_origin.GetAdjective] national committed a murder and the case has made national headlines. Many of our people are now turning to the government, for a statement.\n\nConservatives are demanding that their government does something to punish this alien severely and make an example out of him as a threat and warning to other foreigners, while our liberal elements emphasise the need to not step in and treat this case like any other murder and not discriminate based on the origin of the perpetrator. Either way, the most likely outcome is a death-sentence or a life-long sentence at the very least.\n[foreigner_murderer_origin.GetName] will most likely not like either outcome for one of their citizens, but we could pull some strings behind the scenes to give the murderer a much more lenient sentence to pacify [foreigner_murderer_origin.GetNameDef]."
+peer_pressure_disaster.foreign_murderer_punished: "Punished one of our people."
+peer_pressure_disaster.foreign_murderer_let_go: "Did not punish one of our people."
+peer_pressure_disaster.10.a: "All are equal in the eyes of the law."
+peer_pressure_disaster.10.a.tt: "Change in Popularity of Fascist: §G2.00-9.00%§!\n"
+peer_pressure_disaster.10.b: "Punish him harshly; foreigners can not be trusted."
+peer_pressure_disaster.10.c: "Step in and let him off easy."
+peer_pressure_disaster.10.c.tt: "The public might find out about our interference, and it §Ywill cause a great backlash§!.\n"
