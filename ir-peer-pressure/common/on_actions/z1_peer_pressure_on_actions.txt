@@ -16,24 +16,40 @@ on_actions = {
             has_government = fascism
           }
           set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 6 }
+          set_country_flag = { flag = peer_pressure.fascism_trust value = 6 }
+          set_country_flag = { flag = peer_pressure.democratic_trust value = 1 }
+          set_country_flag = { flag = peer_pressure.communism_trust value = -5 }
+          set_country_flag = { flag = peer_pressure.neutrality_trust value = 1 }
         }
         if = {
           limit = {
             has_government = democratic
           }
           set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 2 }
+          set_country_flag = { flag = peer_pressure.fascism_trust value = 2 }
+          set_country_flag = { flag = peer_pressure.democratic_trust value = 5 }
+          set_country_flag = { flag = peer_pressure.communism_trust value = 2 }
+          set_country_flag = { flag = peer_pressure.neutrality_trust value = 2 }
         }
         if = {
           limit = {
             has_government = communism
           }
           set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 1 }
+          set_country_flag = { flag = peer_pressure.fascism_trust value = -4 }
+          set_country_flag = { flag = peer_pressure.democratic_trust value = 0 }
+          set_country_flag = { flag = peer_pressure.communism_trust value = 6 }
+          set_country_flag = { flag = peer_pressure.neutrality_trust value = -2 }
         }
         if = {
           limit = {
             has_government = neutrality
           }
           set_country_flag = { flag = peer_pressure_disaster.xenophobia value = 3 }
+          set_country_flag = { flag = peer_pressure.fascism_trust value = 3 }
+          set_country_flag = { flag = peer_pressure.democratic_trust value = 4 }
+          set_country_flag = { flag = peer_pressure.communism_trust value = 2 }
+          set_country_flag = { flag = peer_pressure.neutrality_trust value = 6 }
         }
       }
 		}

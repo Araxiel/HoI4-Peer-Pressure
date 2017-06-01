@@ -57,6 +57,9 @@ country_event = {
 
 		set_country_flag = peer_pressure_disaster.10
 
+    modify_country_flag = { flag = peer_pressure.democratic_trust value = 1 }
+    modify_country_flag = { flag = peer_pressure.fascism_trust value = -1 }
+
     add_popularity = { ideology  = democratic popularity = 0.05 }
     custom_effect_tooltip = peer_pressure_disaster.10.a.tt
     hidden_effect = {
@@ -93,6 +96,9 @@ country_event = {
 
 		set_country_flag = peer_pressure_disaster.10
 		modify_country_flag = { flag = peer_pressure_disaster.xenophobia value = 1 }
+		modify_country_flag = { flag = peer_pressure.democratic_trust value = -1 }
+		modify_country_flag = { flag = peer_pressure.fascism_trust value = 1 }
+		modify_country_flag = { flag = peer_pressure.communism_trust value = -1 }
 
     add_popularity = { ideology  = democratic popularity = -0.10 }
     add_popularity = { ideology  = fascism popularity = 0.10 }
@@ -132,10 +138,10 @@ country_event = {
       set_country_flag = peer_pressure_disaster.10.fascists_denied
       random_list = {
         5 = {
-          country_event = { days = 1 id = peer_pressure_answer.14 }
+          country_event = { days = 42 id = peer_pressure_answer.14 }
         }
         3 = {
-          country_event = { days = 1 id = peer_pressure_answer.15 }
+          country_event = { days = 65 id = peer_pressure_answer.15 }
         }
         2 = {
           add_political_power = 1
